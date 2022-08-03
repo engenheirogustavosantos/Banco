@@ -4,18 +4,14 @@ public class Banco {
    private String dono;
    private float saldo;
    private boolean status;
+   public String sc;
    
         public void info(){
-          if(this.getStatus() == true){
         System.out.println("Usuário: " +this.getDono());
         System.out.println("Conta: " +this.getNumConta());
         System.out.println("Tipo: " +this.getTipo());
         System.out.println("Saldo: " +this.getSaldo());
-        System.out.println("Status da conta:" + this.getStatus());
-            }
-            else{
-                System.out.println("ERRO! Conta fechada.");
-            }
+        System.out.println("Status da conta: " + this.statusConta(this.sc));
    }
         
    public int getNumConta(){
@@ -127,6 +123,16 @@ public class Banco {
              else{
                  System.out.println("Impossível pagar com uma conta fechada!");
              }
+    }
+    
+    public String statusConta(String sc){
+        if(this.getStatus() == true){
+            sc = "Aberta";
+        }else{
+            sc = "Fechada";
+        }
+        
+        return sc;
     }
     
     public Banco(){
